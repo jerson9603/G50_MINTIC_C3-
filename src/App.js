@@ -1,10 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NuevaSalida } from './componentes/nuevaSalida/nuevaSalida';
+import { NuevaEntrada } from './componentes/nuevaEntrada/nuevaEntrada';
 
 function App() {
   return (
-    <NuevaSalida/>
+    <NuevaEntrada/>
   );
 }
 
