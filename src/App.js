@@ -1,11 +1,10 @@
 import './App.css';
-// import { Registro } from './componentes/usuario/registro';
-// import { Existencias } from './componentes/existencias/existencias';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NuevaSalida } from './componentes/nuevaSalida/nuevaSalida';
 
 function App() {
   return (
-
-    <h1>React App</h1>
+    <NuevaSalida/>
   );
 }
 
