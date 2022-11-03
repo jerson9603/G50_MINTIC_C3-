@@ -17,19 +17,19 @@ export class Registro extends Component {
     
             <Form.Group className="form-floating">
               <Form.Control type="text" id="floatingName" placeholder="placeholder" className="form-control" />
-              <label>Nombre</label>
+              <Form.Label>Nombre</Form.Label>
             </Form.Group>
             <Form.Group className="form-floating">
               <Form.Control type="text" id="floatingLastName" placeholder="placeholder" className="form-control" />
-              <label>Apellido</label>
+              <Form.Label>Apellido</Form.Label>
             </Form.Group>
             <Form.Group className="form-floating">
               <Form.Control type="email" id="floatingEmail" placeholder="placeholder" className="form-control" />
-              <label>Correo</label>
+              <Form.Label>Correo</Form.Label>
             </Form.Group>
             <Form.Group className="form-floating">
               <Form.Control type="password" id="floatingPassword" placeholder="placeholder" className="form-control" />
-              <label>Contraseña</label>
+              <Form.Label>Contraseña</Form.Label>
             </Form.Group>
                 
             <p>¿Ya estás registrado? <a href="/">Inicia sesión</a></p>
