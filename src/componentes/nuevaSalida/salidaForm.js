@@ -16,11 +16,23 @@ export const SalidaForm = () => {
                 <Form.Label>Cantidad</Form.Label>
                 <Form.Control type="number" />
             </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Nombre Producto</Form.Label>
+                <Form.Control type="text" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Vencimiento</Form.Label>
+                <Form.Control type="date" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Laboratorio</Form.Label>
+                <Form.Control type="text" />
+            </Form.Group>
             <Button variant="primary" type="submit">
                 Guardar
             </Button>
             <Button variant="info">
-                Info
+                Volver
             </Button>
         </Form>
         </>
