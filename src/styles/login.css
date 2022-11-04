@@ -1,28 +1,18 @@
-body 
-{
-  margin: 0;
-  padding: 0;
-  background: url(https://images.unsplash.com/photo-1603555501671-8f96b3fce8b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80); 
+body {
+  display: flex;
+  align-items: center;
+  background: url(https://images.unsplash.com/photo-1603555501671-8f96b3fce8b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: sans-serif;
-  height: 100vh;
 }
 
-h1{
+h1 {
   color: white;
 }
 
-p{
+p {
   color: yellowgreen;
-}
-{
-  display: flex;
-  align-items: center;
-}
-
-#root {
-  width: 100%;
 }
 
 .logo {
@@ -38,26 +28,10 @@ p{
   z-index: 2;
 }
 
-.form-signin input[id="floatingName"] {
+.form-signin input[id="floatingUser"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-.form-signin input[id="floatingLastName"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.form-signin input[id="floatingEmail"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .form-signin input[id="floatingPassword"] {
@@ -65,4 +39,3 @@ p{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
