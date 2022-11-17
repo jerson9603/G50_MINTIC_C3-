@@ -10,7 +10,7 @@ import { ListaSalidas } from './componentes/salidas/listaSalidas';
 
 function App() {
   return (
-    <ListaSalidas/>
+    <Registro/>
 
   );
 }

@@ -22,7 +22,7 @@ app.use(
   })
 );
 app.use(cors());
-app.use("/usuario", studentRoute);
+app.use("/usuarios", studentRoute);
 
 // PORT
 const port = process.env.PORT || 4000;
