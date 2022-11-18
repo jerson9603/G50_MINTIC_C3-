@@ -7,26 +7,26 @@ import '../../styles/miNavbar.css';
 export const MiNavbar = () => {
     return (
         <Navbar expand="lg" bg="light" className="miNavbar">
-            <Navbar.Brand href="#home">Drogueria</Navbar.Brand>
+            <Navbar.Brand href="/listaExistencias">Drogueria</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#existencia">Existencia</Nav.Link>
+                    <Nav.Link href="/listaExistencias">Existencia</Nav.Link>
                     <NavDropdown title="Entradas" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Nueva Entrada</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/nuevaEntrada">Nueva Entrada</NavDropdown.Item>
+                    <NavDropdown.Item href="/listaEntradas">
                         Ver entradas
                     </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Salidas" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Nueva Salida</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/nuevaSalida">Nueva Salida</NavDropdown.Item>
+                    <NavDropdown.Item href="/listaSalidas">
                         Ver salidas
                     </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="#action/3.3">
+                    <Nav.Link href="/">
                         Cerrar Sesion
                     </Nav.Link>
                 </Nav>        

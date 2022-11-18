@@ -52,6 +52,7 @@ export class Registro extends Component {
     this.sentence({ nombre: "", apellido: "", correo: "", contraseña: "" });
 
     // Redirección
+    //a existencias??
     window.location = '/login';
   }
 
