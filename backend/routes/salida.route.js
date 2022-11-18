@@ -2,12 +2,12 @@ let mongoose = require("mongoose"),
   express = require("express"),
   router = express.Router();
 
-// Modelo Usuario
-let usuarioSchema = require("../models/Usuario");
+// Modelo Salida
+let salidaSchema = require("../models/Salida");
 
-// CREAR Usuario
-router.route("/crear-usuario").post((req, res, next) => {
-  usuarioSchema.create(req.body, (error, data) => {
+// CREAR Salida
+router.route("/crear-salida").post((req, res, next) => {
+  salidaSchema.create(req.body, (error, data) => {
     if (error) {
       return next(error);
     } else {
@@ -17,9 +17,9 @@ router.route("/crear-usuario").post((req, res, next) => {
   });
 });
 
-// LEER Usuario
+// LEER Salida
 router.route("/").get((req, res, next) => {
-  usuarioSchema.find((error, data) => {
+  salidaSchema.find((error, data) => {
     if (error) {
       return next(error);
     } else {
@@ -28,9 +28,9 @@ router.route("/").get((req, res, next) => {
   });
 });
 
-// Obtener UN Usuario
-router.route("/obtener-usuario/:id").get((req, res, next) => {
-  usuarioSchema.findById(req.params.id, (error, data) => {
+// Obtener UN Salida
+router.route("/obtener-salida/:id").get((req, res, next) => {
+  salidaSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {
@@ -39,9 +39,9 @@ router.route("/obtener-usuario/:id").get((req, res, next) => {
   });
 });
 
-// ACTUALIZAR Usuario
-router.route("/actualizar-usuario/:id").put((req, res, next) => {
-  usuarioSchema.findByIdAndUpdate(
+// ACTUALIZAR Salida
+router.route("/actualizar-salida/:id").put((req, res, next) => {
+  salidaSchema.findByIdAndUpdate(
     req.params.id,
     {
       $set: req.body,
@@ -52,15 +52,15 @@ router.route("/actualizar-usuario/:id").put((req, res, next) => {
         return next(error);
       } else {
         res.json(data);
-        console.log("Student updated successfully !");
+        console.log("Salida updated successfully !");
       }
     }
   );
 });
 
-// BORRAR Usuario
-router.route("/eliminar-usuario/:id").delete((req, res, next) => {
-  usuarioSchema.findByIdAndRemove(req.params.id, (error, data) => {
+// BORRAR Salida
+router.route("/eliminar-salida/:id").delete((req, res, next) => {
+  salidaSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {

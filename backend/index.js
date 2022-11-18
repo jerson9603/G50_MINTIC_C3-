@@ -5,6 +5,9 @@ let bodyParser = require("body-parser");
 
 // Ruta de Express
 const studentRoute = require("../backend/routes/usuario.route");
+const entradaRoute = require("../backend/routes/entrada.route");
+const salidaRoute = require("../backend/routes/salida.route");
+// Todo
 
 // DB Config
 const db = require("../backend/database/db").mongoURI;
@@ -23,6 +26,9 @@ app.use(
 );
 app.use(cors());
 app.use("/usuarios", studentRoute);
+app.use("/entradas", entradaRoute);
+app.use("/salidas", salidaRoute);
+// todo
 
 // PORT
 const port = process.env.PORT || 4000;

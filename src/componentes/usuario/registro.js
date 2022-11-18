@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+// toDo: No olvidar
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -48,12 +49,14 @@ export class Registro extends Component {
 
     axios
       .post("http://localhost:4000/usuarios/crear-usuario", UsuarioObject)
-      .then((res) => console.log(res.data));
-    this.sentence({ nombre: "", apellido: "", correo: "", contraseña: "" });
+      .then((res) => {
+        console.log(res.data)        
+      });
+      
 
     // Redirección
     //a existencias??
-    window.location = '/login';
+    window.location = '/';
   }
 
   render() {
