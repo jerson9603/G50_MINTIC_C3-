@@ -27,7 +27,7 @@ app.use("/usuarios", studentRoute);
 // PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
-  console.log("Conectado al puerto " + port);
+  console.log("\nConectado al puerto", port + ": http://localhost:4000\n");
 });
 
 app.use(function (err, req, res, next) {

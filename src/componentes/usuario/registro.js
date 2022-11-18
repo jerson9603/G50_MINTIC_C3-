@@ -50,60 +50,63 @@ export class Registro extends Component {
       .post("http://localhost:4000/usuarios/crear-usuario", UsuarioObject)
       .then((res) => console.log(res.data));
     this.sentence({ nombre: "", apellido: "", correo: "", contraseña: "" });
+
+    // Redirección
+    window.location = '/login';
   }
 
   render() {
     return (
       <div id="login-container">
-        <div classnombre="form-signin text-center w-100 m-auto pt-0">
-        <Form onSubmit={this.onSubmit}>
+        <div className="form-signin text-center w-100 m-auto pt-0">
+          <Form onSubmit={this.onSubmit}>
             <img
-              classnombre="mb-3 logo"
+              className="mb-3 logo"
               src="https://cdn1.iconfinder.com/data/icons/zeon-medical-i-2/32/pharmacy_shop_drug_medicine-256.png"
               alt="logo"
             />
 
-            <h1 classnombre="h3 mb-3 fw-normal">Regístrate</h1>
+            <h1 className="h3 mb-3 fw-normal">Regístrate</h1>
 
-            <Form.Group classnombre="form-floating">
+            <Form.Group className="form-floating">
               <Form.Control
                 type="text"
-                id="floatingnombre"
+                id="floatingName"
                 placeholder=" "
-                classnombre="form-control"
+                className="form-control"
                 value={this.state.nombre}
                 onChange={this.onChangeNombreUsuario}
               />
               <Form.Label>Nombre</Form.Label>
             </Form.Group>
-            <Form.Group classnombre="form-floating">
+            <Form.Group className="form-floating">
               <Form.Control
                 type="text"
-                id="floatingapellido"
+                id="floatingLastName"
                 placeholder=" "
-                classnombre="form-control"
+                className="form-control"
                 value={this.state.apellido}
                 onChange={this.onChangeApellidoUsuario}
               />
               <Form.Label>Apellido</Form.Label>
             </Form.Group>
-            <Form.Group classnombre="form-floating">
+            <Form.Group className="form-floating">
               <Form.Control
                 type="correo"
-                id="floatingcorreo"
+                id="floatingEmail"
                 placeholder=" "
-                classnombre="form-control"
+                className="form-control"
                 value={this.state.correo}
                 onChange={this.onChangeCorreoUsuario}
               />
               <Form.Label>Correo</Form.Label>
             </Form.Group>
-            <Form.Group classnombre="form-floating">
+            <Form.Group className="form-floating">
               <Form.Control
                 type="password"
                 id="floatingPassword"
                 placeholder=" "
-                classnombre="form-control"
+                className="form-control"
                 value={this.state.contraseña}
                 onChange={this.onChangeContraseñaUsuario}
               />
@@ -114,8 +117,8 @@ export class Registro extends Component {
               ¿Ya estás registrado? <a href="/">Inicia sesión</a>
             </p>
 
-            <div classnombre="d-grid">
-              <Button type="submit" classnombre="w-100 btn btn-lg btn-success">
+            <div className="d-grid">
+              <Button type="submit" className="w-100 btn btn-lg btn-success">
                 Registrarse
               </Button>
             </div>

@@ -34,7 +34,7 @@ export class Login extends Component {
             </Form.Group>
 
             <p>
-              ¿Olvidó su contraseña? <a href="/">Restablecer</a>
+              ¿Eres nuevo por aquí? <a href="/registrarse">Regístrate</a>
             </p>
 
             <div className="d-grid">
