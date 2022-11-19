@@ -61,17 +61,16 @@ export class CreateEntrada extends Component {
 
     axios
       .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
-      .then((res) => console.log(res.data));
-    // this.sentence({
-    //   fechaEntrada: "",
-    //   proveedorCliente: "",
-    //   cantidad: "",
-    //   nombreProducto: "",
-    //   vencimiento: "",
-    //   lab: "",
-    // });       
-
-    window.location = '/listaEntradas';
+      .then((res) => console.log(res.data))
+      .then(() => {window.location = "/listaEntradas"});
+    this.sentence({
+      fechaEntrada: "",
+      proveedorCliente: "",
+      cantidad: "",
+      nombreProducto: "",
+      vencimiento: "",
+      lab: "",
+    });       
   }
 
   render() {

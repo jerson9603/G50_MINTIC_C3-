@@ -61,17 +61,16 @@ export class CreateSalida extends Component {
 
     axios
       .post("http://localhost:4000/salidas/crear-salida", SalidaObject)
-      .then((res) => console.log(res.data));
-    // this.sentence({
-    //   fechaSalida: "",
-    //   proveedorCliente: "",
-    //   cantidad: "",
-    //   nombreProducto: "",
-    //   vencimiento: "",
-    //   lab: "",
-    // });       
-
-    window.location = '/listaSalidas';
+      .then((res) => console.log(res.data))
+      .then(() => {window.location = "/listaSalidas"});
+    this.sentence({
+      fechaSalida: "",
+      proveedorCliente: "",
+      cantidad: "",
+      nombreProducto: "",
+      vencimiento: "",
+      lab: "",
+    });        
   }
 
   render() {
