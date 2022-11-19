@@ -22,7 +22,7 @@ export const EntradaForm = () => {
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Laboratorio</Form.Label>
-                <Form.Control type="text" placeholder="lab" />
+                <Form.Control type="text" />
             </Form.Group>
             <Button variant="primary" type="submit">
                 Guardar

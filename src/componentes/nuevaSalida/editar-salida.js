@@ -1,13 +1,14 @@
 import React from 'react';
+import axios from "axios";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import '../../styles/salidaForm.css';
+import '../../styles/entradaForm.css';
 
 export const SalidaForm = () => {
     return(
         <>
-        <h1 className="titulo">Nueva Salida</h1>
-        <Form className="salidaForm">
+        <h1 className="titulo">Editar Salida</h1>
+        <Form className="entradaForm">
             <Form.Group className="mb-3">
                 <Form.Label>Nombre Proveedor/Cliente</Form.Label>
                 <Form.Control type="text" placeholder="Proveedor/Cliente" />
@@ -31,7 +32,7 @@ export const SalidaForm = () => {
             <Button variant="primary" type="submit">
                 Guardar
             </Button>
-            <Button variant="info">
+            <Button variant="info" type="submit">
                 Volver
             </Button>
         </Form>
