@@ -1,12 +1,12 @@
 import React from 'react';
 import { MiNavbar } from '../miNavbar/miNavbar';
-import { CreateEntrada } from './entradaForm';
+import { Existencias } from './existencias';
 
-export const NuevaEntrada = () => {
+export const ListaExistencias = () => {
     return(
         <>
             <MiNavbar/>
-            <CreateEntrada/>
+            <Existencias/>
         </>
     );
 }
