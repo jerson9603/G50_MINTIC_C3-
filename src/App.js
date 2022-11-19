@@ -8,7 +8,7 @@ import { Registro } from "./componentes/usuario/registro";
 import { ListaExistencias } from "./componentes/existencias/listaExistencias";
 import { NuevaEntrada } from "./componentes/nuevaEntrada/nuevaEntrada";
 import { ListaEntradas } from "./componentes/listaEntradas/listaEntradas";
-import { ListaSalidas } from "./componentes/salidas/listaSalidas";
+import { ListaSalidas } from "./componentes/listaSalidas/listaSalidas";
 import { NuevaSalida } from "./componentes/nuevaSalida/nuevaSalida";
 
 function App() {

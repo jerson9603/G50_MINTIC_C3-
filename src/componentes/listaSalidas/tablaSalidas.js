@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
-import EntradaTableRow from "./EntradaTableRow";
+import SalidaTableRow from "./SalidaTableRow";
 
-export class EntradasList extends Component {
+export class SalidasList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      entradas: [],
+      salidas: [],
     };
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/entradas/")
+      .get("http://localhost:4000/salidas/")
       .then((res) => {
         this.setState({
-          entradas: res.data,
+          salidas: res.data,
         });
       })
       .catch((error) => {
@@ -25,8 +25,8 @@ export class EntradasList extends Component {
   }
 
   DataTable() {
-    return this.state.entradas.map((res, i) => {
-      return <EntradaTableRow obj={res} key={i} />;
+    return this.state.salidas.map((res, i) => {
+      return <SalidaTableRow obj={res} key={i} />;
     });
   }
 
@@ -36,7 +36,7 @@ export class EntradasList extends Component {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Fecha Entrada</th>
+              <th>Fecha Salida</th>
               <th>Proveedor/Cliente</th>
               <th>Cantidad</th>
               <th>Nombre Producto</th>
