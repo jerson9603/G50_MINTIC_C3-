@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import swal from "sweetalert";
 
 import "../../styles/registro.css";
 
@@ -49,12 +50,26 @@ export class Registro extends Component {
 
     axios
       .post("http://localhost:4000/usuarios/crear-usuario", UsuarioObject)
-      .then((res) => {
-        console.log(res.data);
+      .then(() => {
+        swal({
+          title: "¡Correcto!",
+          text: "Usuario creado con éxito",
+          icon: "success",
+          timer: 2350,
+          button: "Listo",
+        }).then(() => {
+          window.location = "/";
+          return;
+        });
       });
 
-    // Redirección
-    window.location = "/";
+    swal({
+      title: "¡Atención!",
+      text: "Ya te encuentras registrado",
+      icon: "info",
+      timer: 2350,
+      button: "Listo",
+    });
   }
 
   render() {

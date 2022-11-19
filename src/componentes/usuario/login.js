@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import swal from "sweetalert";
 
 import "../../styles/login.css";
 
@@ -50,10 +51,23 @@ export class Login extends Component {
       if (
         validacion(UsuarioObject.correo, UsuarioObject.contraseña, res.data)
       ) {
-        window.location = "/listaExistencias";
-        alert("Validación exitosa");
+        swal({
+          title: "¡Correcto!",
+          text: "Validación exitosa",
+          icon: "success",
+          timer: 2350,
+          buttons: false,
+        }).then(() => {
+          localStorage.setItem("authenticated", "true");
+          window.location = "/listaExistencias";
+        });
       } else {
-        alert("Usuario o contraseña inválidos");
+        swal({
+          title: "Error",
+          text: "Usuario o contraseña inválidos",
+          icon: "error",
+          button: "Listo",
+        });
       }
     });
   }
