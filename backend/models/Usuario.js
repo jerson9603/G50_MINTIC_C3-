@@ -11,9 +11,12 @@ let userSchema = new Schema(
     },
     correo: {
       type: String,
+      unique: true,
+      required: true,
     },
     contraseña: {
       type: String,
+      required: true,
     },
   },
   {

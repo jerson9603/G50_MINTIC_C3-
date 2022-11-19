@@ -14,7 +14,7 @@ const db = require("../backend/database/db").mongoURI;
 // Connect to MongoDB from mLab
 mongoose
   .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB conectado exitosamente"))
+  .then(() => console.log("MongoDB conectado exitosamente\n"))
   .catch((err) => console.log(err));
 
 const app = express();

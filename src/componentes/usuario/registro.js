@@ -50,13 +50,11 @@ export class Registro extends Component {
     axios
       .post("http://localhost:4000/usuarios/crear-usuario", UsuarioObject)
       .then((res) => {
-        console.log(res.data)        
+        console.log(res.data);
       });
-      
 
     // Redirección
-    //a existencias??
-    window.location = '/';
+    window.location = "/";
   }
 
   render() {
@@ -80,6 +78,7 @@ export class Registro extends Component {
                 className="form-control"
                 value={this.state.nombre}
                 onChange={this.onChangeNombreUsuario}
+                required
               />
               <Form.Label>Nombre</Form.Label>
             </Form.Group>
@@ -91,17 +90,19 @@ export class Registro extends Component {
                 className="form-control"
                 value={this.state.apellido}
                 onChange={this.onChangeApellidoUsuario}
+                required
               />
               <Form.Label>Apellido</Form.Label>
             </Form.Group>
             <Form.Group className="form-floating">
               <Form.Control
-                type="correo"
+                type="email"
                 id="floatingEmail"
                 placeholder=" "
                 className="form-control"
                 value={this.state.correo}
                 onChange={this.onChangeCorreoUsuario}
+                required
               />
               <Form.Label>Correo</Form.Label>
             </Form.Group>
@@ -113,6 +114,7 @@ export class Registro extends Component {
                 className="form-control"
                 value={this.state.contraseña}
                 onChange={this.onChangeContraseñaUsuario}
+                required
               />
               <Form.Label>Contraseña</Form.Label>
             </Form.Group>
