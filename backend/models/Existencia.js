@@ -12,8 +12,14 @@ let existenciaSchema = new Schema(
     laboratorio: {
       type: String,
     },
-    fechaVencimiento: {
+    vencimiento: {
       type: String,
+    },
+    lab: {
+      type: String,
+    },
+    entrada: { // True if entrada, False if salida
+      type: Boolean,
     },
   },
   {
