@@ -32,22 +32,20 @@ export class SalidasList extends Component {
 
   render() {
     return (
-      <div className="table-wrapper">
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Fecha Salida</th>
-              <th>Proveedor/Cliente</th>
-              <th>Cantidad</th>
-              <th>Nombre Producto</th>
-              <th>Vencimiento</th>
-              <th>Laboratorio</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>{this.DataTable()}</tbody>
-        </Table>
-      </div>
+      <Table striped bordered hover>
+        <thead>
+          <tr className="table-dark">
+            <th>Fecha Salida</th>
+            <th>Proveedor/Cliente</th>
+            <th>Cantidad</th>
+            <th>Nombre Producto</th>
+            <th>Vencimiento</th>
+            <th>Laboratorio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>{this.DataTable()}</tbody>
+      </Table>
     );
   }
 }

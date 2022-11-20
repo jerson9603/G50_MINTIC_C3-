@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
-import Modal from 'react-bootstrap/Modal';
+import Modal from "react-bootstrap/Modal";
 
 export default class SalidaTableRow extends Component {
-
   constructor(props) {
     super(props);
     this.deleteSalida = this.deleteSalida.bind(this);
     this.state = {
-      show: false
+      show: false,
     };
   }
 
@@ -20,8 +19,8 @@ export default class SalidaTableRow extends Component {
       )
       .then((res) => {
         console.log("Salida successfully deleted!");
-        window.location="/listaSalidas";
-        return ;
+        window.location = "/listaSalidas";
+        return;
       })
       .catch((error) => {
         console.log(error);
@@ -39,32 +38,45 @@ export default class SalidaTableRow extends Component {
           <td>{this.props.obj.vencimiento}</td>
           <td>{this.props.obj.lab}</td>
           <td>
-            <Button 
+            <Button
               href={"/editarSalida/" + this.props.obj._id}
-              size="sm"          
+              size="sm"
+              className="w-50 me-2"
             >
-              Editar  
+              Editar
             </Button>
-            <Button onClick={() => this.setState({ show: true }) } size="sm" variant="danger" className="ml-2">
+            <Button
+              onClick={() => this.setState({ show: true })}
+              size="sm"
+              variant="danger"
+            >
               Borrar
             </Button>
           </td>
         </tr>
-        <Modal show={this.state.show} onHide={() => this.setState({ show: false })} >
+        <Modal
+          show={this.state.show}
+          onHide={() => this.setState({ show: false })}
+        >
           <Modal.Header closeButton>
             <Modal.Title>Borrar</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {"¿Esta seguro que desea borrar la salida \"" + this.props.obj.nombreProducto + "\"?"}
+            {'¿Esta seguro que desea borrar la salida "' +
+              this.props.obj.nombreProducto +
+              '"?'}
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.setState({ show: false })}>
+            <Button
+              variant="secondary"
+              onClick={() => this.setState({ show: false })}
+            >
               Cerrar
             </Button>
             <Button variant="primary" onClick={this.deleteSalida}>
-              Borrar  
+              Borrar
             </Button>
-          </Modal.Footer>    
+          </Modal.Footer>
         </Modal>
       </>
     );

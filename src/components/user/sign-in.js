@@ -77,6 +77,12 @@ export class SignIn extends Component {
       <div id="login-container">
         <div className="form-signin text-center w-100 m-auto pt-0">
           <Form onSubmit={this.onSubmit}>
+            <img
+              className="mb-3 logo"
+              src="https://cdn1.iconfinder.com/data/icons/zeon-medical-i-2/32/pharmacy_shop_drug_medicine-256.png"
+              alt="logo"
+            />
+
             <h1 className="h3 mb-3 fw-normal">Inicio de sesión</h1>
 
             <Form.Group className="form-floating"></Form.Group>

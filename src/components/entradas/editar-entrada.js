@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../../styles/components/entradaForm.css";
+import "../../styles/components/esForm.css";
 import { PageLayout } from "../../components/page-layout";
 
 export default class EditEntrada extends Component {
@@ -96,60 +96,64 @@ export default class EditEntrada extends Component {
   render() {
     return (
       <PageLayout>
-        <h1 className="titulo">Editar Entrada</h1>
-        <Form className="entradaForm" onSubmit={this.onSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Nombre Proveedor/Cliente</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.proveedorCliente}
-              onChange={this.onChangeProvCliName}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Cantidad</Form.Label>
-            <Form.Control
-              type="number"
-              value={this.state.cantidad}
-              onChange={this.onChangeCantidad}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Nombre Producto</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.nombreProducto}
-              onChange={this.onChangeNombreProd}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Fecha de Vencimiento</Form.Label>
-            <Form.Control
-              type="date"
-              value={this.state.vencimiento}
-              onChange={this.onChangeVencimiento}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Laboratorio</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.lab}
-              onChange={this.onChangeLab}
-              required
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Guardar
-          </Button>
-          <Button href={"/listaEntradas"} variant="info">
-            Volver
-          </Button>
-        </Form>
+        <div className="container">
+          <h1 className="titulo mt-5">Editar Entrada</h1>
+          <Form onSubmit={this.onSubmit} className="formA">
+            <Form.Group className="mb-4">
+              <Form.Label>Nombre Proveedor/Cliente</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.proveedorCliente}
+                onChange={this.onChangeProvCliName}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Cantidad</Form.Label>
+              <Form.Control
+                type="number"
+                value={this.state.cantidad}
+                onChange={this.onChangeCantidad}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Nombre Producto</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.nombreProducto}
+                onChange={this.onChangeNombreProd}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Fecha de Vencimiento</Form.Label>
+              <Form.Control
+                type="date"
+                value={this.state.vencimiento}
+                onChange={this.onChangeVencimiento}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Laboratorio</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.lab}
+                onChange={this.onChangeLab}
+                required
+              />
+            </Form.Group>
+            <div className="buttons">              
+            <Button variant="primary" type="submit" className="mb-1 mt-3">
+              Guardar
+            </Button>
+            <Button href={"/listaEntradas"} variant="info">
+              Volver
+            </Button>
+            </div>
+          </Form>
+        </div>
       </PageLayout>
     );
   }

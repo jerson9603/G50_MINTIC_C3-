@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// toDo: No olvidar
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -61,15 +60,18 @@ export class SignUp extends Component {
           window.location = "/";
           return;
         });
+      })
+      .catch((error) => {
+        if (error.response.status === 500) {
+          swal({
+            title: "¡Atención!",
+            text: "El correo electrónico ya se encuentra en uso",
+            icon: "info",
+            timer: 2350,
+            button: "Listo",
+          });
+        }
       });
-
-    swal({
-      title: "¡Atención!",
-      text: "Ya te encuentras registrado",
-      icon: "info",
-      timer: 2350,
-      button: "Listo",
-    });
   }
 
   render() {
