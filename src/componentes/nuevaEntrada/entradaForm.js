@@ -18,8 +18,9 @@ export class CreateEntrada extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     var d = new Date();
-    var todayDate = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
-    this.state = {        
+    var todayDate =
+      d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+    this.state = {
       fechaEntrada: todayDate, // toDo: change to todays date
       proveedorCliente: "",
       cantidad: "",
@@ -62,7 +63,9 @@ export class CreateEntrada extends Component {
     axios
       .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
       .then((res) => console.log(res.data))
-      .then(() => {window.location = "/listaEntradas"});
+      .then(() => {
+        window.location = "/listaEntradas";
+      });
     this.setState({
       fechaEntrada: "",
       proveedorCliente: "",
@@ -70,7 +73,7 @@ export class CreateEntrada extends Component {
       nombreProducto: "",
       vencimiento: "",
       lab: "",
-    });       
+    });
   }
 
   render() {
@@ -86,6 +89,7 @@ export class CreateEntrada extends Component {
               placeholder="Proveedor/Cliente"
               value={this.state.proveedorCliente}
               onChange={this.onChangeProvCliName}
+              required
             />
           </Form.Group>
           <Form.Group controlId="cantidad" className="mb-4">
@@ -95,42 +99,46 @@ export class CreateEntrada extends Component {
               placeholder="Cantidad"
               value={this.state.cantidad}
               onChange={this.onChangeCantidad}
+              required
             />
           </Form.Group>
           <Form.Group controlId="nombreProducto" className="mb-4">
             <Form.Label>Nombre del Producto</Form.Label>
             <Form.Control
-              type="text" 
+              type="text"
               placeholder="Nombre del Producto"
               value={this.state.nombreProducto}
               onChange={this.onChangeNombreProd}
+              required
             />
           </Form.Group>
           <Form.Group controlId="vencimiento" className="mb-4">
             <Form.Label>Fecha de vencimiento</Form.Label>
             <Form.Control
-              type="date" 
+              type="date"
               placeholder="Fecha de vencimiento"
               value={this.state.vencimiento}
               onChange={this.onChangeVencimiento}
+              required
             />
           </Form.Group>
           <Form.Group controlId="lab" className="mb-4">
             <Form.Label>Laboratorio</Form.Label>
             <Form.Control
-              type="text" 
+              type="text"
               placeholder="Laboratorio"
               value={this.state.lab}
               onChange={this.onChangeLab}
+              required
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="me-1">
             Guardar
           </Button>
-          
-          {/* <Button variant="info" type="submit">
+
+          <Button href={"/listaEntradas"} variant="info">
             Volver
-          </Button> */}
+          </Button>
         </Form>
       </div>
     );

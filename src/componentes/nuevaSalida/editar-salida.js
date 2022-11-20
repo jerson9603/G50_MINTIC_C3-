@@ -104,6 +104,7 @@ export default class EditarSalida extends Component {
                         type="text" 
                         value={this.state.proveedorCliente}
                         onChange={this.onChangeProvCliName}
+                        required
                      />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -112,6 +113,7 @@ export default class EditarSalida extends Component {
                         type="number"
                         value={this.state.cantidad}
                         onChange={this.onChangeCantidad}
+                        required
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -120,6 +122,7 @@ export default class EditarSalida extends Component {
                         type="text"
                         value={this.state.nombreProducto}
                         onChange={this.onChangeNombreProd}
+                        required
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -136,6 +139,7 @@ export default class EditarSalida extends Component {
                         type="text"
                         value={this.state.lab}
                         onChange={this.onChangeLab}
+                        required
                     />
                 </Form.Group>
                 <Button variant="primary" type="submit">
