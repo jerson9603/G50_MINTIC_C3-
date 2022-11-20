@@ -1,5 +1,6 @@
-import React from "react";
-import { EditSalida } from "../../components/salidas/editar-salida";
+// TODO
+/* import React from "react";
+import EditSalida from "../../components/salidas/editar-salida";
 import { PageLayout } from "../../components/page-layout";
 
 export const EditarSalida = () => (
@@ -7,3 +8,4 @@ export const EditarSalida = () => (
     <EditSalida />
   </PageLayout>
 );
+ */

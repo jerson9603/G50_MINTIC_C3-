@@ -12,10 +12,10 @@ import { SignUp } from "./components/user/sign-up";
 import { HomePage } from "./pages/home-page";
 import { ListaEntradas } from "./pages/entradas/listaEntradas";
 import { NuevaEntrada } from "./pages/entradas/nuevaEntrada";
-import { EditarEntrada } from "./pages/entradas/editarEntrada";
+import EditEntrada from "./components/entradas/editar-entrada";
 import { ListaSalidas } from "./pages/salidas/listaSalidas";
 import { NuevaSalida } from "./pages/salidas/nuevaSalida";
-import { EditarSalida } from "./pages/salidas/editarSalida";
+import EditSalida from "./components/salidas/editar-salida";
 
 function App() {
   let protejido;
@@ -45,11 +45,11 @@ function App() {
         />
         <Route
           path="/editarEntrada/:id"
-          component={(props) => <EditarEntrada {...props} />}
+          component={(props) => <EditEntrada {...props} />}
         />
         <Route
           path="/editarSalida/:id"
-          component={(props) => <EditarSalida {...props} />}
+          component={(props) => <EditSalida {...props} />}
         />
       </>
     );
