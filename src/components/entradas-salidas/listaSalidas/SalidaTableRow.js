@@ -3,24 +3,24 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
 
-export default class EntradaTableRow extends Component {
-  
+export default class SalidaTableRow extends Component {
+
   constructor(props) {
     super(props);
-    this.deleteEntrada = this.deleteEntrada.bind(this);
+    this.deleteSalida = this.deleteSalida.bind(this);
     this.state = {
       show: false
     };
   }
 
-  deleteEntrada() {
+  deleteSalida() {
     axios
       .delete(
-        "http://localhost:4000/entradas/eliminar-entrada/" + this.props.obj._id
+        "http://localhost:4000/salidas/eliminar-salida/" + this.props.obj._id
       )
       .then((res) => {
-        console.log("Entrada successfully deleted!");
-        window.location="/listaEntradas";
+        console.log("Salida successfully deleted!");
+        window.location="/listaSalidas";
         return ;
       })
       .catch((error) => {
@@ -32,19 +32,19 @@ export default class EntradaTableRow extends Component {
     return (
       <>
         <tr>
-          <td>{this.props.obj.fechaEntrada}</td>
+          <td>{this.props.obj.fechaSalida}</td>
           <td>{this.props.obj.proveedorCliente}</td>
           <td>{this.props.obj.cantidad}</td>
           <td>{this.props.obj.nombreProducto}</td>
           <td>{this.props.obj.vencimiento}</td>
           <td>{this.props.obj.lab}</td>
           <td>
-            <Button
-              href={"/editarEntrada/" + this.props.obj._id}
-              size="sm"
+            <Button 
+              href={"/editarSalida/" + this.props.obj._id}
+              size="sm"          
             >
-              Editar
-            </Button>  
+              Editar  
+            </Button>
             <Button onClick={() => this.setState({ show: true }) } size="sm" variant="danger" className="ml-2">
               Borrar
             </Button>
@@ -55,13 +55,13 @@ export default class EntradaTableRow extends Component {
             <Modal.Title>Borrar</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {"¿Esta seguro que desea borrar la entrada " + this.props.obj._id + "?"}
+            {"¿Esta seguro que desea borrar la salida \"" + this.props.obj.nombreProducto + "\"?"}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={() => this.setState({ show: false })}>
               Cerrar
             </Button>
-            <Button variant="primary" onClick={this.deleteEntrada}>
+            <Button variant="primary" onClick={this.deleteSalida}>
               Borrar  
             </Button>
           </Modal.Footer>    

@@ -3,13 +3,13 @@ import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../../styles/salidaForm.css";
+import "../../../styles/entradaForm.css";
 
-export class CreateSalida extends Component {
+export class CreateEntrada extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeFechaSalida = this.onChangeFechaSalida.bind(this);
+    this.onChangeFechaEntrada = this.onChangeFechaEntrada.bind(this);
     this.onChangeProvCliName = this.onChangeProvCliName.bind(this);
     this.onChangeCantidad = this.onChangeCantidad.bind(this);
     this.onChangeNombreProd = this.onChangeNombreProd.bind(this);
@@ -21,7 +21,7 @@ export class CreateSalida extends Component {
     var todayDate =
       d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
     this.state = {
-      fechaSalida: todayDate, // toDo: change to todays date
+      fechaEntrada: todayDate, // toDo: change to todays date
       proveedorCliente: "",
       cantidad: "",
       nombreProducto: "",
@@ -30,8 +30,8 @@ export class CreateSalida extends Component {
     };
   }
 
-  onChangeFechaSalida(e) {
-    this.setState({ fechaSalida: "test" }); // toDo: change to todays date
+  onChangeFechaEntrada(e) {
+    this.setState({ fechaEntrada: "test" }); // toDo: change to todays date
   }
   onChangeProvCliName(e) {
     this.setState({ proveedorCliente: e.target.value });
@@ -51,8 +51,8 @@ export class CreateSalida extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const SalidaObject = {
-      fechaSalida: this.state.fechaSalida,
+    const EntradaObject = {
+      fechaEntrada: this.state.fechaEntrada,
       proveedorCliente: this.state.proveedorCliente,
       cantidad: this.state.cantidad,
       nombreProducto: this.state.nombreProducto,
@@ -61,13 +61,13 @@ export class CreateSalida extends Component {
     };
 
     axios
-      .post("http://localhost:4000/salidas/crear-salida", SalidaObject)
+      .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
       .then((res) => console.log(res.data))
       .then(() => {
-        window.location = "/listaSalidas";
+        window.location = "/listaEntradas";
       });
     this.setState({
-      fechaSalida: "",
+      fechaEntrada: "",
       proveedorCliente: "",
       cantidad: "",
       nombreProducto: "",
@@ -79,7 +79,7 @@ export class CreateSalida extends Component {
   render() {
     return (
       <div className="form-wrapper">
-        <h1 className="titulo">Nueva Salida</h1>
+        <h1 className="titulo">Nueva Entrada</h1>
         <Form onSubmit={this.onSubmit}>
           {/* toDo: tal vez agregar fecha aqui */}
           <Form.Group controlId="ProveedorCliente" className="mb-4">
@@ -119,6 +119,7 @@ export class CreateSalida extends Component {
               placeholder="Fecha de vencimiento"
               value={this.state.vencimiento}
               onChange={this.onChangeVencimiento}
+              required
             />
           </Form.Group>
           <Form.Group controlId="lab" className="mb-4">
@@ -135,7 +136,7 @@ export class CreateSalida extends Component {
             Guardar
           </Button>
 
-          <Button href={"/listaSalidas"} variant="info">
+          <Button href={"/listaEntradas"} variant="info">
             Volver
           </Button>
         </Form>
