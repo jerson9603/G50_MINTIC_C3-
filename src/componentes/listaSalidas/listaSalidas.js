@@ -1,12 +1,12 @@
 import React from 'react';
 import { MiNavbar } from '../miNavbar/miNavbar';
-import { TablaSalidas } from './tablaSalidas';
+import { SalidasList } from './tablaSalidas';
 
 export const ListaSalidas = () => {
     return(
         <>
             <MiNavbar/>
-            <TablaSalidas/>
+            <SalidasList/>
         </>
-    )
+    );
 }

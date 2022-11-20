@@ -87,7 +87,7 @@ export class Login extends Component {
                 id="floatingUser"
                 placeholder=" "
                 className="form-control"
-                value={this.state.nombre}
+                value={this.state.correo}
                 onChange={this.onChangeCorreoUsuario}
                 required
               />
@@ -99,7 +99,7 @@ export class Login extends Component {
                 id="floatingPassword"
                 placeholder=" "
                 className="form-control"
-                value={this.state.correo}
+                value={this.state.contraseña}
                 onChange={this.onChangeContraseñaUsuario}
                 required
               />

@@ -8,8 +8,10 @@ import { Registro } from "./componentes/usuario/registro";
 import { ListaExistencias } from "./componentes/existencias/listaExistencias";
 import { NuevaEntrada } from "./componentes/nuevaEntrada/nuevaEntrada";
 import { ListaEntradas } from "./componentes/listaEntradas/listaEntradas";
-import { ListaSalidas } from "./componentes/salidas/listaSalidas";
+import { ListaSalidas } from "./componentes/listaSalidas/listaSalidas";
 import { NuevaSalida } from "./componentes/nuevaSalida/nuevaSalida";
+import EditarEntrada from "./componentes/nuevaEntrada/editar-entrada";
+import EditarSalida from "./componentes/nuevaSalida/editar-salida";
 
 function App() {
   let protejido;
@@ -19,16 +21,24 @@ function App() {
         <Route
           exact
           path="/listaExistencias"
-          component={() => <ListaExistencias />}
+          component={(props) => <ListaExistencias {...props} />}
         />
-        <Route exact path="/nuevaEntrada" component={() => <NuevaEntrada />} />
+        <Route exact path="/nuevaEntrada" component={(props) => <NuevaEntrada {...props}/>} />
         <Route
           exact
           path="/listaEntradas"
-          component={() => <ListaEntradas />}
+          component={(props) => <ListaEntradas {...props} />}
         />
-        <Route exact path="/listaSalidas" component={() => <ListaSalidas />} />
-        <Route exact path="/nuevaSalida" component={() => <NuevaSalida />} />
+        <Route exact path="/listaSalidas" component={(props) => <ListaSalidas {...props} />} />
+        <Route exact path="/nuevaSalida" component={(props) => <NuevaSalida {...props}/>} />
+        <Route
+          exact
+          path="/editarEntrada/:id"
+          component={(props) => <EditarEntrada {...props} />} />
+        <Route
+          exact
+          path="/editarSalida/:id"
+          component={(props) => <EditarSalida {...props} />} />  
       </>
     );
   }

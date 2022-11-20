@@ -18,8 +18,9 @@ export class CreateSalida extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     var d = new Date();
-    var todayDate = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
-    this.state = {        
+    var todayDate =
+      d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+    this.state = {
       fechaSalida: todayDate, // toDo: change to todays date
       proveedorCliente: "",
       cantidad: "",
@@ -61,22 +62,23 @@ export class CreateSalida extends Component {
 
     axios
       .post("http://localhost:4000/salidas/crear-salida", SalidaObject)
-      .then((res) => console.log(res.data));
-    // this.sentence({
-    //   fechaSalida: "",
-    //   proveedorCliente: "",
-    //   cantidad: "",
-    //   nombreProducto: "",
-    //   vencimiento: "",
-    //   lab: "",
-    // });       
-
-    window.location = '/listaSalidas';
+      .then((res) => console.log(res.data))
+      .then(() => {
+        window.location = "/listaSalidas";
+      });
+    this.setState({
+      fechaSalida: "",
+      proveedorCliente: "",
+      cantidad: "",
+      nombreProducto: "",
+      vencimiento: "",
+      lab: "",
+    });
   }
 
   render() {
     return (
-      <div class="form-wrapper">
+      <div className="form-wrapper">
         <h1 className="titulo">Nueva Salida</h1>
         <Form onSubmit={this.onSubmit}>
           {/* toDo: tal vez agregar fecha aqui */}
@@ -87,6 +89,7 @@ export class CreateSalida extends Component {
               placeholder="Proveedor/Cliente"
               value={this.state.proveedorCliente}
               onChange={this.onChangeProvCliName}
+              required
             />
           </Form.Group>
           <Form.Group controlId="cantidad" className="mb-4">
@@ -96,21 +99,23 @@ export class CreateSalida extends Component {
               placeholder="Cantidad"
               value={this.state.cantidad}
               onChange={this.onChangeCantidad}
+              required
             />
           </Form.Group>
           <Form.Group controlId="nombreProducto" className="mb-4">
             <Form.Label>Nombre del Producto</Form.Label>
             <Form.Control
-              type="text" 
+              type="text"
               placeholder="Nombre del Producto"
               value={this.state.nombreProducto}
               onChange={this.onChangeNombreProd}
+              required
             />
           </Form.Group>
           <Form.Group controlId="vencimiento" className="mb-4">
             <Form.Label>Fecha de vencimiento</Form.Label>
             <Form.Control
-              type="date" 
+              type="date"
               placeholder="Fecha de vencimiento"
               value={this.state.vencimiento}
               onChange={this.onChangeVencimiento}
@@ -119,19 +124,20 @@ export class CreateSalida extends Component {
           <Form.Group controlId="lab" className="mb-4">
             <Form.Label>Laboratorio</Form.Label>
             <Form.Control
-              type="text" 
+              type="text"
               placeholder="Laboratorio"
               value={this.state.lab}
               onChange={this.onChangeLab}
+              required
             />
           </Form.Group>
           <Button variant="primary" type="submit" className="me-1">
             Guardar
           </Button>
-          
-          {/* <Button variant="info" type="submit">
+
+          <Button href={"/listaSalidas"} variant="info">
             Volver
-          </Button> */}
+          </Button>
         </Form>
       </div>
     );
