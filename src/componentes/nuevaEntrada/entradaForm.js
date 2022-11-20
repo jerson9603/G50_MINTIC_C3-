@@ -63,7 +63,7 @@ export class CreateEntrada extends Component {
       .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
       .then((res) => console.log(res.data))
       .then(() => {window.location = "/listaEntradas"});
-    this.sentence({
+    this.setState({
       fechaEntrada: "",
       proveedorCliente: "",
       cantidad: "",
@@ -75,7 +75,7 @@ export class CreateEntrada extends Component {
 
   render() {
     return (
-      <div class="form-wrapper">
+      <div className="form-wrapper">
         <h1 className="titulo">Nueva Entrada</h1>
         <Form onSubmit={this.onSubmit}>
           {/* toDo: tal vez agregar fecha aqui */}
