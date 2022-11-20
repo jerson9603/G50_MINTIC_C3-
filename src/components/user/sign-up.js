@@ -6,9 +6,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import swal from "sweetalert";
 
-import "../../styles/registro.css";
+import "../../styles/components/registro.css";
 
-export class Registro extends Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props);
 

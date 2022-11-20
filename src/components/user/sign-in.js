@@ -5,9 +5,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import swal from "sweetalert";
 
-import "../../styles/login.css";
+import "../../styles/components/login.css";
 
-export class Login extends Component {
+export class SignIn extends Component {
   constructor(props) {
     super(props);
 
@@ -59,7 +59,7 @@ export class Login extends Component {
           buttons: false,
         }).then(() => {
           localStorage.setItem("authenticated", "true");
-          window.location = "/listaExistencias";
+          window.location = "/home";
         });
       } else {
         swal({

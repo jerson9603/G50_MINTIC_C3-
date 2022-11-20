@@ -2,20 +2,20 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../../styles/miNavbar.css";
+import "../../styles/components/miNavbar.css";
 
-export const MiNavbar = () => {
+export const NavBar = () => {
   const cerrarSesion = () => {
     localStorage.setItem("authenticated", "false");
   };
 
   return (
     <Navbar expand="lg" bg="light" className="miNavbar">
-      <Navbar.Brand href="/listaExistencias">Drogueria</Navbar.Brand>
+      <Navbar.Brand href="/home">Drogueria</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link href="/listaExistencias">Existencia</Nav.Link>
+        <Nav className="me-auto"> {/* //TODO Reutilizar código */}
+          <Nav.Link href="/home">Existencia</Nav.Link>
           <NavDropdown title="Entradas" id="collasible-nav-dropdown">
             <NavDropdown.Item href="/nuevaEntrada">
               Nueva Entrada
@@ -34,7 +34,7 @@ export const MiNavbar = () => {
           </NavDropdown>
         </Nav>
         <Nav>
-          <Nav.Link href="/" onClick={cerrarSesion}>
+          <Nav.Link href="/" onClick={cerrarSesion}> {/* //TODO Separar como componnente */}
             Cerrar Sesion
           </Nav.Link>
         </Nav>

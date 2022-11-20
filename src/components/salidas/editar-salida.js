@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import axios from "axios";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import '../../../styles/entradaForm.css';
+import '../../styles/components/entradaForm.css';
 
-export default class EditarEntrada extends Component {
+export class EditSalida extends Component {
     constructor(props) {
         super(props);
     
@@ -22,12 +22,12 @@ export default class EditarEntrada extends Component {
             vencimiento: "",
             lab: "",
         };
-    }    
+    } 
 
     componentDidMount() {
         axios
             .get(
-                "http://localhost:4000/entradas/obtener-entrada/" + 
+                "http://localhost:4000/salidas/obtener-salida/" + 
                 this.props.match.params.id
             )
             .then((res) => {
@@ -68,7 +68,7 @@ export default class EditarEntrada extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const entradaObject = {
+        const salidaObject = {
             proveedorCliente: this.state.proveedorCliente,
             cantidad: this.state.cantidad,
             nombreProducto: this.state.nombreProducto,
@@ -78,26 +78,26 @@ export default class EditarEntrada extends Component {
 
         axios
             .put(
-                "http://localhost:4000/entradas/actualizar-entrada/" +
+                "http://localhost:4000/salidas/actualizar-salida/" +
                 this.props.match.params.id,
-            entradaObject    
+            salidaObject    
             )
             .then((res) => {
                 console.log(res.data);
-                console.log("Entrada actualizada correctamente");
+                console.log("Salida actualizada correctamente");
             })
             .catch((error) => {
                 console.log(error);
             });
 
-        window.location = "/listaEntradas";    
+        window.location = "/listaSalidas";    
     }
 
     render() {
         return(
             <>
-            <h1 className="titulo">Editar Entrada</h1>
-            <Form className="entradaForm" onSubmit={this.onSubmit}>
+            <h1 className="titulo">Editar Salida</h1>
+            <Form className="salidaForm" onSubmit={this.onSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre Proveedor/Cliente</Form.Label>
                     <Form.Control 
@@ -105,11 +105,11 @@ export default class EditarEntrada extends Component {
                         value={this.state.proveedorCliente}
                         onChange={this.onChangeProvCliName}
                         required
-                    />
+                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Cantidad</Form.Label>
-                    <Form.Control
+                    <Form.Control 
                         type="number"
                         value={this.state.cantidad}
                         onChange={this.onChangeCantidad}
@@ -118,7 +118,7 @@ export default class EditarEntrada extends Component {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre Producto</Form.Label>
-                    <Form.Control 
+                    <Form.Control
                         type="text"
                         value={this.state.nombreProducto}
                         onChange={this.onChangeNombreProd}
@@ -127,16 +127,15 @@ export default class EditarEntrada extends Component {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Fecha de Vencimiento</Form.Label>
-                    <Form.Control 
+                    <Form.Control
                         type="date"
                         value={this.state.vencimiento}
                         onChange={this.onChangeVencimiento}
-                        required
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Laboratorio</Form.Label>
-                    <Form.Control 
+                    <Form.Control
                         type="text"
                         value={this.state.lab}
                         onChange={this.onChangeLab}
@@ -147,7 +146,7 @@ export default class EditarEntrada extends Component {
                     Guardar
                 </Button>
                 <Button 
-                    href={"/listaEntradas"}
+                    href={"/listaSalidas"}
                     variant="info"
                 >
                     Volver

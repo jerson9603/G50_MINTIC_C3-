@@ -3,6 +3,8 @@ let mongoose = require("mongoose");
 let cors = require("cors");
 let bodyParser = require("body-parser");
 
+require('dotenv').config({path: './.env'});
+
 // Ruta de Express
 const studentRoute = require("../backend/routes/usuario.route");
 const entradaRoute = require("../backend/routes/entrada.route");
