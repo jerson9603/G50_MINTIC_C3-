@@ -63,7 +63,7 @@ export class CreateSalida extends Component {
       .post("http://localhost:4000/salidas/crear-salida", SalidaObject)
       .then((res) => console.log(res.data))
       .then(() => {window.location = "/listaSalidas"});
-    this.sentence({
+    this.setState({
       fechaSalida: "",
       proveedorCliente: "",
       cantidad: "",
@@ -75,7 +75,7 @@ export class CreateSalida extends Component {
 
   render() {
     return (
-      <div class="form-wrapper">
+      <div className="form-wrapper">
         <h1 className="titulo">Nueva Salida</h1>
         <Form onSubmit={this.onSubmit}>
           {/* toDo: tal vez agregar fecha aqui */}
