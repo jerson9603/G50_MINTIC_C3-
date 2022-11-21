@@ -44,6 +44,13 @@ export default class ExistenciaTableRow extends Component {
           this.props.obj._id
       )
       .then((res) => {
+        const salidaObject = {
+          proveedorCliente: res.data.proveedorCliente,
+          cantidad: this.state.cantidadV,
+          nombreProducto: res.data.nombreProducto,
+          vencimiento: res.data.vencimiento,
+          lab: res.data.lab,
+        };
         this.setState({ cantidad: res.data.cantidad - this.state.cantidadV });
         const ventaObject = {
           cantidad: this.state.cantidad,
@@ -55,6 +62,10 @@ export default class ExistenciaTableRow extends Component {
             ventaObject
           )
           .then(() => {
+            axios.post(
+              "http://localhost:4000/salidas/crear-salida/",
+              salidaObject
+            );
             window.location = "/home";
             return;
           })
