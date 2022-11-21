@@ -35,7 +35,6 @@ export default class EntradaTableRow extends Component {
           <td>{this.props.obj.proveedorCliente}</td>
           <td>{this.props.obj.cantidad}</td>
           <td>{this.props.obj.nombreProducto}</td>
-          <td>{this.props.obj.vencimiento}</td>
           <td>{this.props.obj.lab}</td>
           <td>
             <Button

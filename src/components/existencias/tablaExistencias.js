@@ -38,7 +38,6 @@ export class ExistenciasList extends Component {
             <th>Proveedor/Cliente</th>
             <th>Cantidad</th>
             <th>Nombre Producto</th>
-            <th>Vencimiento</th>
             <th>Laboratorio</th>
             <th>Acciones</th>
           </tr>
