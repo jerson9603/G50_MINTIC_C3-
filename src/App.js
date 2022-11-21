@@ -1,17 +1,21 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/App.css";
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-import { Login } from "./componentes/usuario/login";
-import { Registro } from "./componentes/usuario/registro";
-import { ListaExistencias } from "./componentes/existencias/listaExistencias";
-import { NuevaEntrada } from "./componentes/nuevaEntrada/nuevaEntrada";
-import { ListaEntradas } from "./componentes/listaEntradas/listaEntradas";
-import { ListaSalidas } from "./componentes/listaSalidas/listaSalidas";
-import { NuevaSalida } from "./componentes/nuevaSalida/nuevaSalida";
-import EditarEntrada from "./componentes/nuevaEntrada/editar-entrada";
-import EditarSalida from "./componentes/nuevaSalida/editar-salida";
+import { SignIn } from "./components/user/sign-in";
+import { SignUp } from "./components/user/sign-up";
+import { HomePage } from "./pages/home-page";
+import { ListaEntradas } from "./pages/entradas/listaEntradas";
+import { NuevaEntrada } from "./pages/entradas/nuevaEntrada";
+import EditEntrada from "./components/entradas/editar-entrada";
+import { ListaSalidas } from "./pages/salidas/listaSalidas";
+import { NuevaSalida } from "./pages/salidas/nuevaSalida";
+import EditSalida from "./components/salidas/editar-salida";
 
 function App() {
   let protejido;
@@ -20,25 +24,33 @@ function App() {
       <>
         <Route
           exact
-          path="/listaExistencias"
-          component={(props) => <ListaExistencias {...props} />}
+          path="/home"
+          component={(props) => <HomePage {...props} />}
         />
-        <Route exact path="/nuevaEntrada" component={(props) => <NuevaEntrada {...props}/>} />
         <Route
-          exact
+          path="/nuevaEntrada"
+          component={(props) => <NuevaEntrada {...props} />}
+        />
+        <Route
           path="/listaEntradas"
           component={(props) => <ListaEntradas {...props} />}
         />
-        <Route exact path="/listaSalidas" component={(props) => <ListaSalidas {...props} />} />
-        <Route exact path="/nuevaSalida" component={(props) => <NuevaSalida {...props}/>} />
         <Route
-          exact
+          path="/listaSalidas"
+          component={(props) => <ListaSalidas {...props} />}
+        />
+        <Route
+          path="/nuevaSalida"
+          component={(props) => <NuevaSalida {...props} />}
+        />
+        <Route
           path="/editarEntrada/:id"
-          component={(props) => <EditarEntrada {...props} />} />
+          component={(props) => <EditEntrada {...props} />}
+        />
         <Route
-          exact
           path="/editarSalida/:id"
-          component={(props) => <EditarSalida {...props} />} />  
+          component={(props) => <EditSalida {...props} />}
+        />
       </>
     );
   }
@@ -46,12 +58,11 @@ function App() {
   let html = (
     <Router>
       <Switch>
-        {/* <Route exact path="*" component={(props) => <Login {...props} />} /> */}
-        <Route exact path="/" component={(props) => <Login {...props} />} />
+        <Route exact path="/" component={(props) => <SignIn {...props} />} />
         <Route
           exact
           path="/registrarse"
-          component={(props) => <Registro {...props} />}
+          component={(props) => <SignUp {...props} />}
         />
         {protejido}
         <Redirect to="/" />

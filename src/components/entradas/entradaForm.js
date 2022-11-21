@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../../styles/entradaForm.css";
+import "../../styles/components/esForm.css";
 
 export class CreateEntrada extends Component {
   constructor(props) {
@@ -78,9 +78,9 @@ export class CreateEntrada extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
-        <h1 className="titulo">Nueva Entrada</h1>
-        <Form onSubmit={this.onSubmit}>
+      <div className="container">
+        <h1 className="titulo mt-5">Nueva Entrada</h1>
+        <Form onSubmit={this.onSubmit} className="formA">
           {/* toDo: tal vez agregar fecha aqui */}
           <Form.Group controlId="ProveedorCliente" className="mb-4">
             <Form.Label>Nombre Proveedor/Cliente</Form.Label>
@@ -132,13 +132,14 @@ export class CreateEntrada extends Component {
               required
             />
           </Form.Group>
-          <Button variant="primary" type="submit" className="me-1">
-            Guardar
-          </Button>
-
-          <Button href={"/listaEntradas"} variant="info">
-            Volver
-          </Button>
+          <div className="buttons">
+            <Button variant="primary" type="submit" className="mb-1 mt-3">
+              Guardar
+            </Button>
+            <Button href={"/listaEntradas"} variant="info">
+              Volver
+            </Button>
+          </div>
         </Form>
       </div>
     );
