@@ -39,13 +39,6 @@ export default class SalidaTableRow extends Component {
           <td>{this.props.obj.lab}</td>
           <td>
             <Button
-              href={"/editarSalida/" + this.props.obj._id}
-              size="sm"
-              className="w-50 me-2"
-            >
-              Editar
-            </Button>
-            <Button
               onClick={() => this.setState({ show: true })}
               size="sm"
               variant="danger"

@@ -7,37 +7,27 @@ import Form from "react-bootstrap/Form";
 export default class ExistenciaTableRow extends Component {
   constructor(props) {
     super(props);
-    this.deleteExistencia = this.deleteExistencia.bind(this);
-    this.ventaExistencia = this.ventaExistencia.bind(this);
+    this.venta = this.venta.bind(this);
+    this.compra = this.compra.bind(this);
     this.onChangeCantidadV = this.onChangeCantidadV.bind(this);
+    this.onChangeCantidadC = this.onChangeCantidadC.bind(this);
     this.state = {
-      showD: false,
       showV: false,
+      showC: false,
       cantidad: "",
       cantidadV: "",
+      cantidadC: "",
     };
-  }
-
-  deleteExistencia() {
-    axios
-      .delete(
-        "http://localhost:4000/existencias/eliminar-existencia/" +
-          this.props.obj._id
-      )
-      .then(() => {
-        window.location = "/home";
-        return;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   onChangeCantidadV(e) {
     this.setState({ cantidadV: e.target.value });
   }
+  onChangeCantidadC(e) {
+    this.setState({ cantidadC: e.target.value });
+  }
 
-  ventaExistencia() {
+  venta() {
     axios
       .get(
         "http://localhost:4000/existencias/obtener-existencia/" +
@@ -75,6 +65,46 @@ export default class ExistenciaTableRow extends Component {
       });
   }
 
+  compra() {
+    console.log(this.props);
+    axios
+      .get(
+        "http://localhost:4000/existencias/obtener-existencia/" +
+          this.props.obj._id
+      )
+      .then((res) => {
+        const entradaObject = {
+          proveedorCliente: res.data.proveedorCliente,
+          cantidad: this.state.cantidadC,
+          nombreProducto: res.data.nombreProducto,
+          vencimiento: res.data.vencimiento,
+          lab: res.data.lab,
+        };
+        this.setState({ cantidad: res.data.cantidad + this.state.cantidadC });
+        const compraObject = {
+          cantidad: this.state.cantidad,
+        };
+        axios
+          .put(
+            "http://localhost:4000/existencias/actualizar-existencia/" +
+              this.props.obj._id,
+            compraObject
+          )
+          .then(() => {
+            axios.post(
+              "http://localhost:4000/entradas/crear-entrada/",
+              entradaObject
+            );
+            console.log("Done", compraObject, entradaObject)
+            window.location = "/home";
+            return;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+  }
+
   render() {
     return (
       <>
@@ -91,56 +121,18 @@ export default class ExistenciaTableRow extends Component {
               className="me-2"
               variant="success"
             >
-              Venta
+              Vender
             </Button>
             <Button
-              href={"/editarEntrada/" + this.props.obj._id}
+              onClick={() => this.setState({ showC: true })}
               size="sm"
               className="me-2"
               variant="warning"
             >
               Compra
             </Button>
-            <Button
-              href={"/editarEntrada/" + this.props.obj._id}
-              size="sm"
-              className="me-2"
-            >
-              Editar
-            </Button>
-            <Button
-              onClick={() => this.setState({ showD: true })}
-              size="sm"
-              variant="danger"
-            >
-              Borrar
-            </Button>
           </td>
         </tr>
-        <Modal
-          show={this.state.showD}
-          onHide={() => this.setState({ showD: false })}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Borrar</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {'¿Esta seguro que desea borrar el producto "' +
-              this.props.obj.nombreProducto +
-              '"?'}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={() => this.setState({ showD: false })}
-            >
-              Cerrar
-            </Button>
-            <Button variant="primary" onClick={this.deleteExistencia}>
-              Borrar
-            </Button>
-          </Modal.Footer>
-        </Modal>
 
         <Modal
           size="lg"
@@ -150,7 +142,7 @@ export default class ExistenciaTableRow extends Component {
           onHide={() => this.setState({ showV: false })}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Borrar</Modal.Title>
+            <Modal.Title>Vender</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group controlId="cantidadV" className="mb-4">
@@ -173,8 +165,47 @@ export default class ExistenciaTableRow extends Component {
             >
               Cancelar
             </Button>
-            <Button variant="success" onClick={this.ventaExistencia}>
-              Vender
+            <Button variant="success" onClick={this.venta}>
+              Hecho
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          show={this.state.showC}
+          onHide={() => this.setState({ showC: false })}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Entrada</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Group controlId="cantidadC" className="mb-4">
+              <Form.Label>
+                {'Unidades de "' +
+                  this.props.obj.nombreProducto +
+                  '" a comprar'}
+              </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Cantidad"
+                value={this.state.cantidadC}
+                onChange={this.onChangeCantidadC}
+                required
+              />
+            </Form.Group>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() => this.setState({ showC: false })}
+            >
+              Cerrar
+            </Button>
+            <Button variant="primary" onClick={this.venta}>
+              Hecho
             </Button>
           </Modal.Footer>
         </Modal>
