@@ -17,10 +17,7 @@ export const NavBarCollapse = () => {
             Ver entradas
           </NavDropdown.Item>
         </NavDropdown>
-        <NavDropdown title="Salidas" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="/nuevaSalida">Nueva Salida</NavDropdown.Item>
-          <NavDropdown.Item href="/listaSalidas">Ver salidas</NavDropdown.Item>
-        </NavDropdown>
+        <Nav.Link href="/listaSalidas">Salidas</Nav.Link>
       </Nav>
       <Nav>
         <NavBarButton />

@@ -9,6 +9,7 @@ require('dotenv').config({path: './.env'});
 const studentRoute = require("../backend/routes/usuario.route");
 const entradaRoute = require("../backend/routes/entrada.route");
 const salidaRoute = require("../backend/routes/salida.route");
+const existenciaRoute = require("../backend/routes/existencia.route");
 // Todo
 
 // DB Config
@@ -30,6 +31,7 @@ app.use(cors());
 app.use("/usuarios", studentRoute);
 app.use("/entradas", entradaRoute);
 app.use("/salidas", salidaRoute);
+app.use("/existencias", existenciaRoute);
 // todo
 
 // PORT

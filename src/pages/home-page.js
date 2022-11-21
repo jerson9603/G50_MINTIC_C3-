@@ -1,9 +1,9 @@
 import React from "react";
-import { Existencias } from '../components/existencias/existencias';
+import { ExistenciasList } from "../components/existencias/tablaExistencias";
 import { PageLayout } from "../components/page-layout";
 
 export const HomePage = () => (
   <PageLayout>
-    <Existencias />
+    <ExistenciasList />
   </PageLayout>
 );

@@ -9,7 +9,6 @@ export class CreateEntrada extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeFechaEntrada = this.onChangeFechaEntrada.bind(this);
     this.onChangeProvCliName = this.onChangeProvCliName.bind(this);
     this.onChangeCantidad = this.onChangeCantidad.bind(this);
     this.onChangeNombreProd = this.onChangeNombreProd.bind(this);
@@ -17,11 +16,7 @@ export class CreateEntrada extends Component {
     this.onChangeLab = this.onChangeLab.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    var d = new Date();
-    var todayDate =
-      d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
     this.state = {
-      fechaEntrada: todayDate, // toDo: change to todays date
       proveedorCliente: "",
       cantidad: "",
       nombreProducto: "",
@@ -30,9 +25,6 @@ export class CreateEntrada extends Component {
     };
   }
 
-  onChangeFechaEntrada(e) {
-    this.setState({ fechaEntrada: "test" }); // toDo: change to todays date
-  }
   onChangeProvCliName(e) {
     this.setState({ proveedorCliente: e.target.value });
   }
@@ -52,7 +44,6 @@ export class CreateEntrada extends Component {
     e.preventDefault();
 
     const EntradaObject = {
-      fechaEntrada: this.state.fechaEntrada,
       proveedorCliente: this.state.proveedorCliente,
       cantidad: this.state.cantidad,
       nombreProducto: this.state.nombreProducto,
@@ -61,19 +52,14 @@ export class CreateEntrada extends Component {
     };
 
     axios
-      .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
-      .then((res) => console.log(res.data))
+      .post("http://localhost:4000/existencias/crear-existencia", EntradaObject)
       .then(() => {
+        axios.post(
+          "http://localhost:4000/entradas/crear-entrada",
+          EntradaObject
+        );
         window.location = "/listaEntradas";
       });
-    this.setState({
-      fechaEntrada: "",
-      proveedorCliente: "",
-      cantidad: "",
-      nombreProducto: "",
-      vencimiento: "",
-      lab: "",
-    });
   }
 
   render() {
