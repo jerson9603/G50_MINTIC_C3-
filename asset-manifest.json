@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/G50_MINTIC_C4/static/css/main.d3469688.css",
+    "main.js": "/G50_MINTIC_C4/static/js/main.39b15b8d.js",
+    "index.html": "/G50_MINTIC_C4/index.html",
+    "main.d3469688.css.map": "/G50_MINTIC_C4/static/css/main.d3469688.css.map",
+    "main.39b15b8d.js.map": "/G50_MINTIC_C4/static/js/main.39b15b8d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d3469688.css",
+    "static/js/main.39b15b8d.js"
+  ]
+}
