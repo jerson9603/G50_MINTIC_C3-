@@ -34,7 +34,7 @@ export default class ExistenciaTableRow extends Component {
           this.props.obj._id
       )
       .then((res) => {
-        const salidaObject = {
+        const entradaObject = {
           proveedorCliente: res.data.proveedorCliente,
           cantidad: this.state.cantidadV,
           nombreProducto: res.data.nombreProducto,
@@ -53,7 +53,7 @@ export default class ExistenciaTableRow extends Component {
           .then(() => {
             axios.post(
               "http://localhost:4000/salidas/crear-salida/",
-              salidaObject
+              entradaObject
             );
             window.location = "/home";
             return;
@@ -65,7 +65,6 @@ export default class ExistenciaTableRow extends Component {
   }
 
   compra() {
-    console.log(this.props);
     axios
       .get(
         "http://localhost:4000/existencias/obtener-existencia/" +
@@ -76,10 +75,11 @@ export default class ExistenciaTableRow extends Component {
           proveedorCliente: res.data.proveedorCliente,
           cantidad: this.state.cantidadC,
           nombreProducto: res.data.nombreProducto,
-          vencimiento: res.data.vencimiento,
           lab: res.data.lab,
         };
-        this.setState({ cantidad: res.data.cantidad + this.state.cantidadC });
+        this.setState({
+          cantidad: Number(res.data.cantidad) + Number(this.state.cantidadC),
+        });
         const compraObject = {
           cantidad: this.state.cantidad,
         };
@@ -94,7 +94,6 @@ export default class ExistenciaTableRow extends Component {
               "http://localhost:4000/entradas/crear-entrada/",
               entradaObject
             );
-            console.log("Done", compraObject, entradaObject)
             window.location = "/home";
             return;
           })
@@ -124,10 +123,10 @@ export default class ExistenciaTableRow extends Component {
             <Button
               onClick={() => this.setState({ showC: true })}
               size="sm"
-              className="me-2"
+              className="me"
               variant="warning"
             >
-              Compra
+              Comprar
             </Button>
           </td>
         </tr>
@@ -202,7 +201,7 @@ export default class ExistenciaTableRow extends Component {
             >
               Cerrar
             </Button>
-            <Button variant="primary" onClick={this.venta}>
+            <Button variant="primary" onClick={this.compra}>
               Hecho
             </Button>
           </Modal.Footer>

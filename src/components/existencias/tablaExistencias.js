@@ -16,7 +16,7 @@ export class ExistenciasList extends Component {
       .get("http://localhost:4000/existencias/")
       .then((res) => {
         this.setState({
-          existencias: res.data,
+          existencias: res.data.reverse(),
         });
       })
       .catch((error) => {

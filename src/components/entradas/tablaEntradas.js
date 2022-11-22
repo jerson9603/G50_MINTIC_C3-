@@ -16,7 +16,7 @@ export class EntradasList extends Component {
       .get("http://localhost:4000/entradas/")
       .then((res) => {
         this.setState({
-          entradas: res.data,
+          entradas: res.data.reverse(),
         });
       })
       .catch((error) => {

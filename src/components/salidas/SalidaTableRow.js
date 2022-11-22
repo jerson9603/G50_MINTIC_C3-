@@ -31,7 +31,7 @@ export default class SalidaTableRow extends Component {
     return (
       <>
         <tr>
-          <td>{this.props.obj.fechaSalida}</td>
+          <td>{this.props.obj.fechaSalida.split("T", 1)}</td>
           <td>{this.props.obj.proveedorCliente}</td>
           <td>{this.props.obj.cantidad}</td>
           <td>{this.props.obj.nombreProducto}</td>

@@ -16,7 +16,7 @@ export class SalidasList extends Component {
       .get("http://localhost:4000/salidas/")
       .then((res) => {
         this.setState({
-          salidas: res.data,
+          salidas: res.data.reverse(),
         });
       })
       .catch((error) => {
