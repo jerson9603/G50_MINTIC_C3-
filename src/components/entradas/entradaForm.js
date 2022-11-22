@@ -12,7 +12,6 @@ export class CreateEntrada extends Component {
     this.onChangeProvCliName = this.onChangeProvCliName.bind(this);
     this.onChangeCantidad = this.onChangeCantidad.bind(this);
     this.onChangeNombreProd = this.onChangeNombreProd.bind(this);
-    this.onChangeVencimiento = this.onChangeVencimiento.bind(this);
     this.onChangeLab = this.onChangeLab.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -20,7 +19,6 @@ export class CreateEntrada extends Component {
       proveedorCliente: "",
       cantidad: "",
       nombreProducto: "",
-      vencimiento: "",
       lab: "",
     };
   }
@@ -34,9 +32,6 @@ export class CreateEntrada extends Component {
   onChangeNombreProd(e) {
     this.setState({ nombreProducto: e.target.value });
   }
-  onChangeVencimiento(e) {
-    this.setState({ vencimiento: e.target.value });
-  }
   onChangeLab(e) {
     this.setState({ lab: e.target.value });
   }
@@ -47,7 +42,6 @@ export class CreateEntrada extends Component {
       proveedorCliente: this.state.proveedorCliente,
       cantidad: this.state.cantidad,
       nombreProducto: this.state.nombreProducto,
-      vencimiento: this.state.vencimiento,
       lab: this.state.lab,
     };
 
@@ -98,16 +92,7 @@ export class CreateEntrada extends Component {
               required
             />
           </Form.Group>
-          <Form.Group controlId="vencimiento" className="mb-4">
-            <Form.Label>Fecha de vencimiento</Form.Label>
-            <Form.Control
-              type="date"
-              placeholder="Fecha de vencimiento"
-              value={this.state.vencimiento}
-              onChange={this.onChangeVencimiento}
-              required
-            />
-          </Form.Group>
+          
           <Form.Group controlId="lab" className="mb-4">
             <Form.Label>Laboratorio</Form.Label>
             <Form.Control

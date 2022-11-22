@@ -16,9 +16,6 @@ let entradaSchema = new Schema(
     nombreProducto: {
       type: String,
     },
-    vencimiento: {
-      type: Date,
-    },
     lab: {
       type: String,
     },

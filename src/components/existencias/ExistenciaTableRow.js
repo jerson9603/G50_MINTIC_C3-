@@ -38,7 +38,6 @@ export default class ExistenciaTableRow extends Component {
           proveedorCliente: res.data.proveedorCliente,
           cantidad: this.state.cantidadV,
           nombreProducto: res.data.nombreProducto,
-          vencimiento: res.data.vencimiento,
           lab: res.data.lab,
         };
         this.setState({ cantidad: res.data.cantidad - this.state.cantidadV });
@@ -112,7 +111,6 @@ export default class ExistenciaTableRow extends Component {
           <td>{this.props.obj.proveedorCliente}</td>
           <td>{this.props.obj.cantidad}</td>
           <td>{this.props.obj.nombreProducto}</td>
-          <td>{this.props.obj.vencimiento}</td>
           <td>{this.props.obj.lab}</td>
           <td>
             <Button

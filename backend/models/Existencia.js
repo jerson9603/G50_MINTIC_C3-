@@ -12,9 +12,6 @@ let existenciaSchema = new Schema(
     nombreProducto: {
       type: String,
     },
-    vencimiento: {
-      type: Date,
-    },
     lab: {
       type: String,
     },
