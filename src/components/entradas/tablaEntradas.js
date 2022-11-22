@@ -16,7 +16,7 @@ export class EntradasList extends Component {
       .get("http://localhost:4000/entradas/")
       .then((res) => {
         this.setState({
-          entradas: res.data,
+          entradas: res.data.reverse(),
         });
       })
       .catch((error) => {
@@ -39,7 +39,6 @@ export class EntradasList extends Component {
             <th>Proveedor/Cliente</th>
             <th>Cantidad</th>
             <th>Nombre Producto</th>
-            <th>Vencimiento</th>
             <th>Laboratorio</th>
             <th>Acciones</th>
           </tr>

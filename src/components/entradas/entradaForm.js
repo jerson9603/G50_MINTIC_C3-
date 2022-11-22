@@ -9,30 +9,20 @@ export class CreateEntrada extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeFechaEntrada = this.onChangeFechaEntrada.bind(this);
     this.onChangeProvCliName = this.onChangeProvCliName.bind(this);
     this.onChangeCantidad = this.onChangeCantidad.bind(this);
     this.onChangeNombreProd = this.onChangeNombreProd.bind(this);
-    this.onChangeVencimiento = this.onChangeVencimiento.bind(this);
     this.onChangeLab = this.onChangeLab.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    var d = new Date();
-    var todayDate =
-      d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
     this.state = {
-      fechaEntrada: todayDate, // toDo: change to todays date
       proveedorCliente: "",
       cantidad: "",
       nombreProducto: "",
-      vencimiento: "",
       lab: "",
     };
   }
 
-  onChangeFechaEntrada(e) {
-    this.setState({ fechaEntrada: "test" }); // toDo: change to todays date
-  }
   onChangeProvCliName(e) {
     this.setState({ proveedorCliente: e.target.value });
   }
@@ -42,9 +32,6 @@ export class CreateEntrada extends Component {
   onChangeNombreProd(e) {
     this.setState({ nombreProducto: e.target.value });
   }
-  onChangeVencimiento(e) {
-    this.setState({ vencimiento: e.target.value });
-  }
   onChangeLab(e) {
     this.setState({ lab: e.target.value });
   }
@@ -52,28 +39,21 @@ export class CreateEntrada extends Component {
     e.preventDefault();
 
     const EntradaObject = {
-      fechaEntrada: this.state.fechaEntrada,
       proveedorCliente: this.state.proveedorCliente,
       cantidad: this.state.cantidad,
       nombreProducto: this.state.nombreProducto,
-      vencimiento: this.state.vencimiento,
       lab: this.state.lab,
     };
 
     axios
-      .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
-      .then((res) => console.log(res.data))
+      .post("http://localhost:4000/existencias/crear-existencia", EntradaObject)
       .then(() => {
+        axios.post(
+          "http://localhost:4000/entradas/crear-entrada",
+          EntradaObject
+        );
         window.location = "/listaEntradas";
       });
-    this.setState({
-      fechaEntrada: "",
-      proveedorCliente: "",
-      cantidad: "",
-      nombreProducto: "",
-      vencimiento: "",
-      lab: "",
-    });
   }
 
   render() {
@@ -112,16 +92,7 @@ export class CreateEntrada extends Component {
               required
             />
           </Form.Group>
-          <Form.Group controlId="vencimiento" className="mb-4">
-            <Form.Label>Fecha de vencimiento</Form.Label>
-            <Form.Control
-              type="date"
-              placeholder="Fecha de vencimiento"
-              value={this.state.vencimiento}
-              onChange={this.onChangeVencimiento}
-              required
-            />
-          </Form.Group>
+          
           <Form.Group controlId="lab" className="mb-4">
             <Form.Label>Laboratorio</Form.Label>
             <Form.Control

@@ -13,9 +13,7 @@ import { HomePage } from "./pages/home-page";
 import { ListaEntradas } from "./pages/entradas/listaEntradas";
 import { NuevaEntrada } from "./pages/entradas/nuevaEntrada";
 import EditEntrada from "./components/entradas/editar-entrada";
-import { ListaSalidas } from "./pages/salidas/listaSalidas";
-import { NuevaSalida } from "./pages/salidas/nuevaSalida";
-import EditSalida from "./components/salidas/editar-salida";
+import { ListaSalidas } from "./pages/listaSalidas";
 
 function App() {
   let protejido;
@@ -32,24 +30,16 @@ function App() {
           component={(props) => <NuevaEntrada {...props} />}
         />
         <Route
+          path="/editEntrada"
+          component={(props) => <EditEntrada {...props} />}
+        />
+        <Route
           path="/listaEntradas"
           component={(props) => <ListaEntradas {...props} />}
         />
         <Route
           path="/listaSalidas"
           component={(props) => <ListaSalidas {...props} />}
-        />
-        <Route
-          path="/nuevaSalida"
-          component={(props) => <NuevaSalida {...props} />}
-        />
-        <Route
-          path="/editarEntrada/:id"
-          component={(props) => <EditEntrada {...props} />}
-        />
-        <Route
-          path="/editarSalida/:id"
-          component={(props) => <EditSalida {...props} />}
         />
       </>
     );

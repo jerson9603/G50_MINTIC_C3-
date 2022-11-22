@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 let salidaSchema = new Schema(
   {
     fechaSalida: {
-      type: String,
+      type: Date,
+      default: Date.now,
     },
     proveedorCliente: {
       type: String,
@@ -13,9 +14,6 @@ let salidaSchema = new Schema(
       type: Number,
     },
     nombreProducto: {
-      type: String,
-    },
-    vencimiento: {
       type: String,
     },
     lab: {

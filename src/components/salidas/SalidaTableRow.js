@@ -31,20 +31,12 @@ export default class SalidaTableRow extends Component {
     return (
       <>
         <tr>
-          <td>{this.props.obj.fechaSalida}</td>
+          <td>{this.props.obj.fechaSalida.split("T", 1)}</td>
           <td>{this.props.obj.proveedorCliente}</td>
           <td>{this.props.obj.cantidad}</td>
           <td>{this.props.obj.nombreProducto}</td>
-          <td>{this.props.obj.vencimiento}</td>
           <td>{this.props.obj.lab}</td>
           <td>
-            <Button
-              href={"/editarSalida/" + this.props.obj._id}
-              size="sm"
-              className="w-50 me-2"
-            >
-              Editar
-            </Button>
             <Button
               onClick={() => this.setState({ show: true })}
               size="sm"

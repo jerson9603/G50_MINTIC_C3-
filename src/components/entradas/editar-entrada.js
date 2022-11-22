@@ -12,7 +12,6 @@ export default class EditEntrada extends Component {
     this.onChangeProvCliName = this.onChangeProvCliName.bind(this);
     this.onChangeCantidad = this.onChangeCantidad.bind(this);
     this.onChangeNombreProd = this.onChangeNombreProd.bind(this);
-    this.onChangeVencimiento = this.onChangeVencimiento.bind(this);
     this.onChangeLab = this.onChangeLab.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -20,7 +19,6 @@ export default class EditEntrada extends Component {
       proveedorCliente: "",
       cantidad: "",
       nombreProducto: "",
-      vencimiento: "",
       lab: "",
     };
   }
@@ -36,7 +34,6 @@ export default class EditEntrada extends Component {
           proveedorCliente: res.data.proveedorCliente,
           cantidad: res.data.cantidad,
           nombreProducto: res.data.nombreProducto,
-          vencimiento: res.data.vencimiento,
           lab: res.data.lab,
         });
       })
@@ -57,10 +54,6 @@ export default class EditEntrada extends Component {
     this.setState({ nombreProducto: e.target.value });
   }
 
-  onChangeVencimiento(e) {
-    this.setState({ vencimiento: e.target.value });
-  }
-
   onChangeLab(e) {
     this.setState({ lab: e.target.value });
   }
@@ -72,7 +65,6 @@ export default class EditEntrada extends Component {
       proveedorCliente: this.state.proveedorCliente,
       cantidad: this.state.cantidad,
       nombreProducto: this.state.nombreProducto,
-      vencimiento: this.state.vencimiento,
       lab: this.state.lab,
     };
 
@@ -126,15 +118,7 @@ export default class EditEntrada extends Component {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Fecha de Vencimiento</Form.Label>
-              <Form.Control
-                type="date"
-                value={this.state.vencimiento}
-                onChange={this.onChangeVencimiento}
-                required
-              />
-            </Form.Group>
+            
             <Form.Group className="mb-4">
               <Form.Label>Laboratorio</Form.Label>
               <Form.Control
@@ -144,13 +128,13 @@ export default class EditEntrada extends Component {
                 required
               />
             </Form.Group>
-            <div className="buttons">              
-            <Button variant="primary" type="submit" className="mb-1 mt-3">
-              Guardar
-            </Button>
-            <Button href={"/listaEntradas"} variant="info">
-              Volver
-            </Button>
+            <div className="buttons">
+              <Button variant="primary" type="submit" className="mb-1 mt-3">
+                Guardar
+              </Button>
+              <Button href={"/listaEntradas"} variant="info">
+                Volver
+              </Button>
             </div>
           </Form>
         </div>
