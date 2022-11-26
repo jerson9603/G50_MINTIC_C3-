@@ -40,7 +40,7 @@ export default class ExistenciaTableRow extends Component {
           nombreProducto: res.data.nombreProducto,
           lab: res.data.lab,
         };
-        this.setState({ cantidad: res.data.cantidad - this.state.cantidadV });
+        this.setState({ cantidad: Number(res.data.cantidad) - Number(this.state.cantidadV) });
         const ventaObject = {
           cantidad: this.state.cantidad,
         };
