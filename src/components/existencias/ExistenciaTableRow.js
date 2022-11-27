@@ -54,9 +54,11 @@ export default class ExistenciaTableRow extends Component {
             axios.post(
               "http://localhost:4000/salidas/crear-salida/",
               entradaObject
-            );
-            window.location = "/home";
-            return;
+            )
+            .then(() => {
+              window.location = "/home";
+            });
+            
           })
           .catch((error) => {
             console.log(error);
@@ -93,9 +95,10 @@ export default class ExistenciaTableRow extends Component {
             axios.post(
               "http://localhost:4000/entradas/crear-entrada/",
               entradaObject
-            );
-            window.location = "/home";
-            return;
+            )
+            .then(() => {
+              window.location = "/home";
+            });
           })
           .catch((error) => {
             console.log(error);
