@@ -26,7 +26,7 @@ export default class EditEntrada extends Component {
   componentDidMount() {
     axios
       .get(
-        "http://localhost:4000/entradas/obtener-entrada/" +
+        "https://backend-drogueria.vercel.app/entradas/obtener-entrada/" +
           this.props.match.params.id
       )
       .then((res) => {
@@ -70,7 +70,7 @@ export default class EditEntrada extends Component {
 
     axios
       .put(
-        "http://localhost:4000/entradas/actualizar-entrada/" +
+        "https://backend-drogueria.vercel.app/entradas/actualizar-entrada/" +
           this.props.match.params.id,
         entradaObject
       )
@@ -118,7 +118,7 @@ export default class EditEntrada extends Component {
                 required
               />
             </Form.Group>
-            
+
             <Form.Group className="mb-4">
               <Form.Label>Laboratorio</Form.Label>
               <Form.Control

@@ -46,10 +46,10 @@ export class CreateEntrada extends Component {
     };
 
     axios
-      .post("http://localhost:4000/existencias/crear-existencia", EntradaObject)
+      .post("https://backend-drogueria.vercel.app/existencias/crear-existencia", EntradaObject)
       .then(() => {
         axios
-          .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
+          .post("https://backend-drogueria.vercel.app/entradas/crear-entrada", EntradaObject)
           .then(() => {
             window.location = "/listaEntradas";
           });

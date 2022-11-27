@@ -15,7 +15,8 @@ export default class EntradaTableRow extends Component {
   deleteEntrada() {
     axios
       .delete(
-        "http://localhost:4000/entradas/eliminar-entrada/" + this.props.obj._id
+        "https://backend-drogueria.vercel.app/entradas/eliminar-entrada/" +
+          this.props.obj._id
       )
       .then((res) => {
         console.log("Entrada successfully deleted!");

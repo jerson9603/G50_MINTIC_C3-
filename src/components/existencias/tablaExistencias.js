@@ -13,7 +13,7 @@ export class ExistenciasList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/existencias/")
+      .get("https://backend-drogueria.vercel.app/existencias/")
       .then((res) => {
         this.setState({
           existencias: res.data.reverse(),

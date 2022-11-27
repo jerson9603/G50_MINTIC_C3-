@@ -30,7 +30,7 @@ export default class ExistenciaTableRow extends Component {
   venta() {
     axios
       .get(
-        "http://localhost:4000/existencias/obtener-existencia/" +
+        "https://backend-drogueria.vercel.app/existencias/obtener-existencia/" +
           this.props.obj._id
       )
       .then((res) => {
@@ -40,25 +40,27 @@ export default class ExistenciaTableRow extends Component {
           nombreProducto: res.data.nombreProducto,
           lab: res.data.lab,
         };
-        this.setState({ cantidad: Number(res.data.cantidad) - Number(this.state.cantidadV) });
+        this.setState({
+          cantidad: Number(res.data.cantidad) - Number(this.state.cantidadV),
+        });
         const ventaObject = {
           cantidad: this.state.cantidad,
         };
         axios
           .put(
-            "http://localhost:4000/existencias/actualizar-existencia/" +
+            "https://backend-drogueria.vercel.app/existencias/actualizar-existencia/" +
               this.props.obj._id,
             ventaObject
           )
           .then(() => {
-            axios.post(
-              "http://localhost:4000/salidas/crear-salida/",
-              entradaObject
-            )
-            .then(() => {
-              window.location = "/home";
-            });
-            
+            axios
+              .post(
+                "https://backend-drogueria.vercel.app/salidas/crear-salida/",
+                entradaObject
+              )
+              .then(() => {
+                window.location = "/home";
+              });
           })
           .catch((error) => {
             console.log(error);
@@ -69,7 +71,7 @@ export default class ExistenciaTableRow extends Component {
   compra() {
     axios
       .get(
-        "http://localhost:4000/existencias/obtener-existencia/" +
+        "https://backend-drogueria.vercel.app/existencias/obtener-existencia/" +
           this.props.obj._id
       )
       .then((res) => {
@@ -87,18 +89,19 @@ export default class ExistenciaTableRow extends Component {
         };
         axios
           .put(
-            "http://localhost:4000/existencias/actualizar-existencia/" +
+            "https://backend-drogueria.vercel.app/existencias/actualizar-existencia/" +
               this.props.obj._id,
             compraObject
           )
           .then(() => {
-            axios.post(
-              "http://localhost:4000/entradas/crear-entrada/",
-              entradaObject
-            )
-            .then(() => {
-              window.location = "/home";
-            });
+            axios
+              .post(
+                "https://backend-drogueria.vercel.app/entradas/crear-entrada/",
+                entradaObject
+              )
+              .then(() => {
+                window.location = "/home";
+              });
           })
           .catch((error) => {
             console.log(error);

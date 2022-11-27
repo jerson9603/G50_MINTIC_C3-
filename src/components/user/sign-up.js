@@ -48,7 +48,10 @@ export class SignUp extends Component {
     };
 
     axios
-      .post("http://localhost:4000/usuarios/crear-usuario", UsuarioObject)
+      .post(
+        "https://backend-drogueria.vercel.app/usuarios/crear-usuario",
+        UsuarioObject
+      )
       .then(() => {
         swal({
           title: "¡Correcto!",

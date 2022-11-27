@@ -13,7 +13,7 @@ export class SalidasList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/salidas/")
+      .get("https://backend-drogueria.vercel.app/salidas/")
       .then((res) => {
         this.setState({
           salidas: res.data.reverse(),

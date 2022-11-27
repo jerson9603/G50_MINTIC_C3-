@@ -15,7 +15,8 @@ export default class SalidaTableRow extends Component {
   deleteSalida() {
     axios
       .delete(
-        "http://localhost:4000/salidas/eliminar-salida/" + this.props.obj._id
+        "https://backend-drogueria.vercel.app/salidas/eliminar-salida/" +
+          this.props.obj._id
       )
       .then((res) => {
         console.log("Salida successfully deleted!");

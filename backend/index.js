@@ -3,7 +3,7 @@ let mongoose = require("mongoose");
 let cors = require("cors");
 let bodyParser = require("body-parser");
 
-require('dotenv').config({path: './.env'});
+require("dotenv").config({ path: "./.env" });
 
 // Ruta de Express
 const studentRoute = require("../backend/routes/usuario.route");
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.options('/*', (_, res) => {
+app.options("/*", (_, res) => {
   res.sendStatus(200);
 });
 app.use(bodyParser.json());
@@ -52,7 +52,10 @@ app.use("/existencias", existenciaRoute);
 // PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
-  console.log("\nConectado al puerto", port + ": http://localhost:4000\n");
+  console.log(
+    "\nConectado al puerto",
+    port + ": https://backend-drogueria.vercel.app\n"
+  );
 });
 
 app.use(function (err, req, res, next) {
