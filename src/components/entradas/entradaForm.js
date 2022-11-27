@@ -48,11 +48,11 @@ export class CreateEntrada extends Component {
     axios
       .post("http://localhost:4000/existencias/crear-existencia", EntradaObject)
       .then(() => {
-        axios.post(
-          "http://localhost:4000/entradas/crear-entrada",
-          EntradaObject
-        );
-        window.location = "/listaEntradas";
+        axios
+          .post("http://localhost:4000/entradas/crear-entrada", EntradaObject)
+          .then(() => {
+            window.location = "/listaEntradas";
+          });
       });
   }
 
@@ -92,7 +92,7 @@ export class CreateEntrada extends Component {
               required
             />
           </Form.Group>
-          
+
           <Form.Group controlId="lab" className="mb-4">
             <Form.Label>Laboratorio</Form.Label>
             <Form.Control
