@@ -3,7 +3,7 @@
 - Andres Felipe Acevedo Vergara
 - Luz Alejandra Rodríguez Gutiérrez
 - Lina Marcela Echeverri Arenas
-- Blanca Marlen Pidiache Tabaco
+- Meyer Albeiro Peña Pidiache
 - Jerson Alejandro Teran Enriquez
 
 # Getting Started with Create React App
